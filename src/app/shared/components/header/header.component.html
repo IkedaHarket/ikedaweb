@@ -1,0 +1,12 @@
+<header class="header">
+    <div class="header__title">
+        <span routerLink="inicio">Ikeda Harket</span>
+    </div>
+    <nav class="header__nav">
+        <ul *ngIf="menuService.menu$ | async as menu">
+            <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>
+        </ul>
+        <span>☀️</span>
+    </nav>
+</header>
+<div class="header-fix"></div>
