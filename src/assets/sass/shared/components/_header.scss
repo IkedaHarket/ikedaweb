@@ -4,7 +4,7 @@ header{
     top: 0;
     left: 0;
     width: 100vw;
-    height: 80px;
+    height: $header-height;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -31,7 +31,7 @@ header{
                     margin-right: 30px;
                 }
                 &:hover{
-                    text-shadow: 2px 4px 6px lighten($color: $text-color, $amount: 50);
+                    text-shadow: $text-shadow;
                 }
             }
         }
@@ -39,5 +39,5 @@ header{
 }
 .header-fix{
     width: 100vw;
-    height: 80px;
+    height: $header-height;
 }

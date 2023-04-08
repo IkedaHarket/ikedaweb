@@ -1,8 +1,11 @@
 @import "./fonts/poppins";
 @import "./colors";
+@import "./variables";
+
 @import "./base";
 
-@import "./shared/index";
-@import "./core/index";
+@import "./components/index";
 
-@import "./pages/index";
+@import "./shared/index";
+
+@import "./modules/index";

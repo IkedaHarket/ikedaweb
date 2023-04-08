@@ -1,0 +1,6 @@
+
+$header-height: 80px;
+$page-height: calc(100vh - $header-height);
+$transition: .3s ease-in-out;
+$box-shadow: 5px 2px 26px -12px rgba(0,0,0,0.65);
+$text-shadow: 2px 4px 6px lighten($color: $text-color, $amount: 50);

@@ -12,3 +12,6 @@ html{
 ul{
     list-style: none;
 }
+.swal2-loader{
+    border-color: $primary-color rgba(0,0,0,0) $primary-color rgba(0,0,0,0) !important;
+}

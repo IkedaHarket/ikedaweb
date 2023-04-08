@@ -1,5 +1,5 @@
 #carousel-images{
     .carousel-inner{
-        max-height: calc(100vh - 80px);
+        max-height: $page-height;
     }
 }
