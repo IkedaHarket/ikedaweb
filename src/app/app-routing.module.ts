@@ -3,13 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: "",
+    loadChildren: () => import("src/app/pages/public/public-page.module").then(m => m.PublicPageModule),
+  },
+  {
     path: "auth",
     loadChildren: () => import("src/app/core/auth/auth.module").then( m => m.AuthModule),
   },
-  {
-    path: "inicio",
-    loadComponent: () => import("src/app/pages/inicio-page/inicio-page.component").then(c => c.InicioPageComponent),
-  }
 ];
 
 @NgModule({

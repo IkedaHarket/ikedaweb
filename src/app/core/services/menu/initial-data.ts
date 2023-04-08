@@ -2,23 +2,23 @@ import { MenuItem } from "../../interfaces";
 
 export default [
     {
-        label: "Programacion",    
-        route: "",
+        label: "Habilidades",    
+        route: "skills",
         icon: ""
     },
     {
         label: "Experiencia",    
-        route: "",
+        route: "experience",
         icon: ""
     },
     {
         label: "Albums",    
-        route: "",
+        route: "albums",
         icon: ""
     },
     {
         label: "Proyectos",    
-        route: "",
+        route: "projects",
         icon: ""
     },
     {
