@@ -1,1 +1,3 @@
-<p>configuration-page works!</p>
+<section class="page configurationPage" *ngIf="configuration.configuration$ | async as configuration">
+    <pre>{{configuration | json}}</pre>
+</section>

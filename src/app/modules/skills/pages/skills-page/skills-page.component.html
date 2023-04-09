@@ -1,1 +1,3 @@
-<p>skills-page works!</p>
+<section class="page skillsPage" *ngIf="skills.skills$ | async as skills">
+    <pre>{{skills | json}}</pre>
+</section>

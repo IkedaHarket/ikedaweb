@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, Subject, catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 
 import { environment } from 'src/environments/environment'
 import { Configuration } from '../../interfaces';
@@ -11,7 +11,7 @@ import { Configuration } from '../../interfaces';
 })
 export class ConfigurationService {
 
-  private _configuration = new Subject<Configuration>();
+  private _configuration = new BehaviorSubject<Configuration | null>(null);
   public  configuration$ = this._configuration.asObservable();
 
   constructor(

@@ -5,11 +5,11 @@ import { authGuard } from 'src/app/core/guards/auth/auth.guard';
 
 const routes: Routes = [
   {
-    path:"dashboard",
+    path:"configuration",
     canActivate:[authGuard],
     children:[
       {
-        path:"configuration",
+        path:"dashboard",
         component: ConfigurationPageComponent
       }
     ]

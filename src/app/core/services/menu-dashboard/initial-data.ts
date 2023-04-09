@@ -3,27 +3,27 @@ import { MenuItem } from "../../interfaces";
 export default [
     {
         label: "Habilidades",    
-        route: "/dashboard/skills",
+        route: "/skills/dashboard",
         icon: ""
     },
     {
         label: "Configuracion",    
-        route: "/dashboard/configuration",
+        route: "/configuration/dashboard",
         icon: ""
     },
     {
         label: "Experiencia",    
-        route: "/dashboard/experience",
+        route: "/jobs/dashboard",
         icon: ""
     },
     {
         label: "Albums",    
-        route: "/dashboard/albums",
+        route: "/albums/dashboard",
         icon: ""
     },
     {
         label: "Proyectos",    
-        route: "/dashboard/projects",
+        route: "/projects/dashboard",
         icon: ""
     },
 ] as MenuItem[]

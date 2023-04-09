@@ -8,7 +8,7 @@ export default [
     },
     {
         label: "Experiencia",    
-        route: "experience",
+        route: "jobs",
         icon: ""
     },
     {

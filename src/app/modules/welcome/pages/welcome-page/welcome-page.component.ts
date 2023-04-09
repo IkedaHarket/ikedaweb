@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigurationService } from 'src/app/modules/configuration/services/configuration/configuration.service';
 
 @Component({
   selector: 'app-welcome-page',
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class WelcomePageComponent {
 
+  constructor(
+    public readonly configuration: ConfigurationService,
+  ){}
+  
 }

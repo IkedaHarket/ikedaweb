@@ -1,1 +1,3 @@
-<p>projects-page works!</p>
+<section class="page projectsPage" *ngIf="project.projects$ | async as projects">
+    <pre>{{ projects | json }}</pre>
+</section>

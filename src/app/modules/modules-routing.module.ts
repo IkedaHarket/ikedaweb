@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ExperienceModule } from './experience/experience.module';
 
 const routes: Routes = [
   {
@@ -16,8 +15,8 @@ const routes: Routes = [
             path: "skills",
             loadChildren: () => import("src/app/modules/skills/skills.module").then( m => m.SkillsModule ) 
           },{ 
-            path: "experience",
-            loadChildren: () => import("src/app/modules/experience/experience.module").then( m => ExperienceModule )
+            path: "jobs",
+            loadChildren: () => import("src/app/modules/jobs/jobs.module").then( m => m.JobsModule )
           },{ 
             path: "albums",
             loadChildren: () => import("src/app/modules/album/album.module").then( m => m.AlbumModule )

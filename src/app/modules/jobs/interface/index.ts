@@ -1,0 +1,1 @@
+export { Job } from './jobs.interface';

@@ -1,0 +1,3 @@
+<section class="page projectsDashboardPage" *ngIf="project.projects$ | async as projects">
+    <pre>{{ projects | json }}</pre>
+</section>

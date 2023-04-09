@@ -6,8 +6,7 @@ import { ConfigurationModule } from './configuration/configuration.module';
 import { AuthService } from './auth/services/auth/auth.service';
 
 @NgModule({
-  declarations: [
-  ],
+  declarations: [],
   imports: [
     CommonModule,
     ModulesRoutingModule,
