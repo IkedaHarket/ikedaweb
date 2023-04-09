@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { MenuService } from 'src/app/core/services';
+import { Router } from '@angular/router';
+import { MenuHeaderService } from 'src/app/core/services';
+import { AuthService } from 'src/app/modules/auth/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,6 +10,13 @@ import { MenuService } from 'src/app/core/services';
 })
 export class HeaderComponent {
   constructor(
-    public menuService: MenuService,
+    private readonly router: Router,
+    public readonly menu: MenuHeaderService,
+    public readonly auth: AuthService,
   ){}
+
+  logOut(){
+    this.auth.logOut();
+    this.router.navigateByUrl('/')
+  }
 }

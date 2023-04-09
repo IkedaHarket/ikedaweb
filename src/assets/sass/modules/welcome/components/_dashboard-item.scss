@@ -1,0 +1,21 @@
+.dashboardPage__item{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+    background-color: $primary-color;
+    color: $text-color-secodary;
+    box-shadow: $box-shadow;
+    transition: $transition transform;
+    cursor: pointer;
+    & img {
+        width: 50px;
+    }
+    &:hover{
+        transform: scale(1.05);
+    }
+}

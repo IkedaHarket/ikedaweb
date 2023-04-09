@@ -1,10 +1,11 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, catchError, switchMap, tap, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { Observable, Subject, catchError, of, tap, throwError } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { LoginRequest, LoginResponse, RenewTokenResponse, User } from '../../interfaces';
-import { AlertService } from 'src/app/core/services';
+import { AlertService, MenuHeaderService } from 'src/app/core/services';
 import { ErrorAPI } from 'src/app/core/interfaces';
 
 @Injectable({
@@ -12,36 +13,42 @@ import { ErrorAPI } from 'src/app/core/interfaces';
 })
 export class AuthService {
 
-  private _user = new Subject<User>();
+  private _user = new Subject<User | null>();
   public user$ = this._user.asObservable();
   
   constructor(
     private readonly http : HttpClient,
-    private readonly alert: AlertService
+    private readonly alert: AlertService,
+    private readonly menu: MenuHeaderService,
+    private readonly router: Router,
   ) { 
-    if(localStorage.getItem('token') !== ''){
-      this.renewToken().subscribe();
-    }
+    
   }
 
   sendLogIn(loginRequest: LoginRequest):Observable<LoginResponse>{
     this.alert.loading();
     return this.http.post<LoginResponse>(`${environment.backendUrl}auth/login`,loginRequest).pipe(
-      tap(() => this.alert.close()),
-      tap(({token}) => localStorage.setItem('token',token)),
-      tap((response) => this._user.next(response) ),
+      tap((resp) => {
+        localStorage.setItem('token',resp.token);
+        this.alert.close();
+        this._user.next(resp);
+        this.menu.setLogInMenu();
+        this.router.navigateByUrl('/welcome/dashboard')
+      }),
       catchError( (e) => this.handleErrorApi(e) )
       )
   }
     
-  renewToken():Observable<RenewTokenResponse>{
+  renewToken():Observable<RenewTokenResponse | boolean>{
     return this.http.get<RenewTokenResponse>(`${environment.backendUrl}auth/check-status`).pipe(
-      tap(({token}) => localStorage.setItem('token',token)),
+      tap((resp) => {
+        this._user.next(resp);
+        localStorage.setItem('token',resp.token)
+        this.menu.setLogInMenu();
+      }),
       catchError( () => {
-        localStorage.removeItem('token');
-        return throwError(
-          () => new Error(`Un error ha ocurrido; por favor reintente mas tarde.`)
-        )
+        this.logOut();
+        return of(false)
       } )
       )
   }
@@ -56,5 +63,11 @@ export class AuthService {
     return throwError(
       () => new Error(`Un error ha ocurrido; por favor reintente mas tarde.`)
     );
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.menu.setLogOutMenu()
+    this._user.next(null)
   }
 }

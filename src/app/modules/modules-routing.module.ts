@@ -10,7 +10,7 @@ const routes: Routes = [
         path: "",
         children: [
           { 
-            path: "inicio",
+            path: "welcome",
             loadChildren: () => import("src/app/modules/welcome/welcome.module").then( m => m.WelcomeModule ) 
           },{ 
             path: "skills",

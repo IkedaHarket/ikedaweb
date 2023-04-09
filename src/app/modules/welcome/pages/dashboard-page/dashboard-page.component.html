@@ -1,0 +1,6 @@
+<section class="page dashboardPage">
+    <app-dashboard-item 
+        *ngFor="let item of menu.menu$ | async"
+        [item]="item"
+    ></app-dashboard-item>
+</section>

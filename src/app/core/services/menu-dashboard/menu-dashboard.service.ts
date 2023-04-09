@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { MenuItem } from '../../interfaces';
+
 import initialData from './initial-data';
+import { MenuItem } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MenuService {
+export class MenuDashboardService {
 
-  private _menu = new BehaviorSubject<MenuItem[]>(initialData)
+  private _menuData: MenuItem[] = initialData;
+
+  private _menu = new BehaviorSubject<MenuItem[]>(this._menuData);
   public menu$ = this._menu.asObservable();
 
   constructor() { }
