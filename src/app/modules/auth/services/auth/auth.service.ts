@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subject, catchError, of, tap, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, of, tap, throwError } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 import { LoginRequest, LoginResponse, RenewTokenResponse, User } from '../../interfaces';
@@ -13,7 +13,7 @@ import { ErrorAPI } from 'src/app/core/interfaces';
 })
 export class AuthService {
 
-  private _user = new Subject<User | null>();
+  private _user = new BehaviorSubject<User | null>(null);
   public user$ = this._user.asObservable();
   
   constructor(
