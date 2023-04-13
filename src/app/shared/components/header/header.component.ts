@@ -9,14 +9,21 @@ import { AuthService } from 'src/app/modules/auth/services/auth/auth.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
+  showResponsiveMenu: boolean = false;
+
   constructor(
     private readonly router: Router,
     public readonly menu: MenuHeaderService,
     public readonly auth: AuthService,
   ){}
 
+  toggleShowResponsiveMenu(){
+    this.showResponsiveMenu = !this.showResponsiveMenu;
+  }
+
   logOut(){
     this.auth.logOut();
-    this.router.navigateByUrl('/')
+    this.router.navigateByUrl('/auth/login')
   }
 }

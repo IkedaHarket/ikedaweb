@@ -5,6 +5,7 @@ import { ProjectsRoutingModule } from './projects-routing.module';
 import { ProjectsPageComponent } from './pages/projects-page/projects-page.component';
 import { ProjectsDashboardPageComponent } from './pages/projects-dashboard-page/projects-dashboard-page.component';
 import { ProjectService } from './service/project/project.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProjectService } from './service/project/project.service';
   ],
   imports: [
     CommonModule,
-    ProjectsRoutingModule
+    ProjectsRoutingModule,
+    SharedModule,
   ]
 })
 export class ProjectsModule { 

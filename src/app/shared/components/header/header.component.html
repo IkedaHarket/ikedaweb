@@ -1,13 +1,31 @@
-<header class="header">
+<header class="header" *ngIf="menu.menu$ | async as menu">
     <div class="header__title">
         <span routerLink="welcome">Ikeda Harket</span>
     </div>
     <nav class="header__nav">
-        <ul *ngIf="menu.menu$ | async as menu">
+        <ul >
             <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>
-            <li *ngIf="auth.user$ | async as user" (click)="logOut()" > Cerrar Sesion </li>
+            <li *ngIf="auth.user$ | async as user" (click)="logOut()" >Cerrar Sesion</li>
         </ul>
         <span>☀️</span>
     </nav>
+    <nav class="header__nav-responsive" [class.active]="showResponsiveMenu">
+        <div class="header__nav-responsive-openClose">
+            <mat-icon fontIcon="{{showResponsiveMenu ? 'arrow_forward' : 'arrow_back'}}" (click)="toggleShowResponsiveMenu()"></mat-icon>
+        </div>
+        <div class="container-button-theme">
+            <span class="button-theme">☀️</span>
+        </div>
+        <ul>
+            <li routerLink="welcome">Inicio</li>
+            <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>
+            <li *ngIf="auth.user$ | async as user" (click)="logOut()" >Cerrar Sesion</li>
+        </ul>
+    </nav>
+    <div 
+    class="header__nav-responsive-shadow" 
+    [class.active]="showResponsiveMenu"
+    (click)="toggleShowResponsiveMenu()"
+    ></div>
 </header>
 <div class="header-fix"></div>

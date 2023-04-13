@@ -3,8 +3,7 @@ header{
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
-    max-width: 100vw;
+    width: 100%;
     height: $header-height;
     display: flex;
     align-items: center;
@@ -37,8 +36,83 @@ header{
             }
         }
     }
+    & .header__nav-responsive{
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        background-color: $background-color;
+        z-index: 1000;
+        width: 15rem;
+        right: -15rem;
+        transition: $transition right;
+        &.active{
+            right: 0;
+        }
+        & ul {
+            padding: 0;
+            max-width: 15rem;
+            & li{
+                text-align: center;
+                font-size: 1.4rem;
+                font-weight: 500;
+                margin: 1rem 0;
+                cursor: pointer;
+                &:hover{
+                    text-shadow: $text-shadow;
+                }
+            }
+        }
+        & .container-button-theme{
+            margin: 20px 0;
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        & .header__nav-responsive-openClose{
+            background-color: $background-color;
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px 0 0 10px;
+            position: absolute;
+            z-index: 1000;
+            left: -3rem;
+            top: calc( ($header-height / 2) - 1.5rem );
+            cursor: pointer;
+            &:hover{
+                text-shadow: $text-shadow;
+            }
+        }
+        
+    }
+    & .header__nav-responsive-shadow{
+        content: "";
+        position: fixed;
+        bottom: 0;
+        display: none;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: rgba(81, 81, 81, 0.622);
+        z-index: 100;
+        &.active{
+            display: inline-block;
+        }
+    }
 }
 .header-fix{
-    width: 100vw;
     height: $header-height;
+}
+@media screen and (max-width: 840px) {
+    header{
+        & .header__nav{ 
+            display: none;
+         }
+         & .header__nav-responsive{
+            display: inline-block;
+         }
+    }
 }

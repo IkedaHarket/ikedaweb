@@ -1,3 +1,6 @@
 <section class="page skillsPage" *ngIf="skills.skills$ | async as skills">
+    <!-- <div class="d-flex justify-content-center"> -->
+        <app-animated-title title="Habilidades"></app-animated-title>
+    <!-- </div> -->
     <pre>{{skills | json}}</pre>
 </section>

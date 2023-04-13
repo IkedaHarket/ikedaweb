@@ -5,6 +5,7 @@ import { AlbumRoutingModule } from './album-routing.module';
 import { AlbumsPageComponent } from './pages/albums-page/albums-page.component';
 import { AlbumDashboardPageComponent } from './pages/album-dashboard-page/album-dashboard-page.component';
 import { AlbumService } from './services/album/album.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AlbumService } from './services/album/album.service';
   ],
   imports: [
     CommonModule,
-    AlbumRoutingModule
+    AlbumRoutingModule,
+    SharedModule,
   ]
 })
 export class AlbumModule {

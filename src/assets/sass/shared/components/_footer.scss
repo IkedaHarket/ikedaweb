@@ -1,0 +1,41 @@
+footer.footer{
+    background-color: $background-color-secondary;
+    position: relative;
+    margin-top: 145px;
+    & .footer__curva{
+        position: absolute;
+        width: 100%;
+        bottom: 100%;
+    }
+    & .footer__container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 0 50px 0;
+        & form{
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-direction: column;
+
+            & input{
+                width: 30rem;
+                font-size: 2rem;
+                height: 3rem;
+            }
+            & textarea{
+                width: 30rem;
+                font-size: 2rem;
+                height: 10rem;
+            }
+            & button{
+                width: 10rem;
+                font-size: 2rem;
+                padding: 5px ;
+            }
+        }
+    }
+}

@@ -5,6 +5,7 @@ import { ExperienceRoutingModule } from './jobs-routing.module';
 import { JobsPageComponent } from './pages/jobs-page/jobs-page.component';
 import { JobsDashboardPageComponent } from './pages/jobs-dashboard-page/jobs-dashboard-page.component';
 import { JobsService } from './services/jobs/jobs.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { JobsService } from './services/jobs/jobs.service';
   ],
   imports: [
     CommonModule,
-    ExperienceRoutingModule
+    ExperienceRoutingModule,
+    SharedModule,
   ]
 })
 export class JobsModule { 
