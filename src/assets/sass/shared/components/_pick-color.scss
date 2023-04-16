@@ -1,0 +1,19 @@
+.pick-color{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    position: relative;
+    & img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+    & input[type="color"]{
+        position: absolute;
+        z-index: -1;
+        top: .6rem;
+        left: .6rem;
+        width: 1px;
+        height: 1px;
+    }
+}

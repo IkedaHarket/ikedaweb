@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SkillsService } from '../../services/skills/skills.service';
 
 @Component({
   selector: 'app-skills-page',
@@ -9,6 +8,6 @@ import { SkillsService } from '../../services/skills/skills.service';
 export class SkillsPageComponent {
 
   constructor(
-    public readonly skills : SkillsService,
+    
   ){}
 }

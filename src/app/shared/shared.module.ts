@@ -7,6 +7,7 @@ import { MaterialModule } from '../material/material.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { AnimatedTitleComponent } from './components/animated-title/animated-title.component';
 import { MapleLeafComponent } from './components/maple-leaf/maple-leaf.component';
+import { PickColorComponent } from './components/pick-color/pick-color.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { MapleLeafComponent } from './components/maple-leaf/maple-leaf.component
     FooterComponent,
     AnimatedTitleComponent,
     MapleLeafComponent,
+    PickColorComponent,
   ],
   imports: [
     CommonModule,
@@ -27,6 +29,7 @@ import { MapleLeafComponent } from './components/maple-leaf/maple-leaf.component
     FooterComponent,
     AnimatedTitleComponent,
     MapleLeafComponent,
+    PickColorComponent,
   ]
 })
 export class SharedModule { }

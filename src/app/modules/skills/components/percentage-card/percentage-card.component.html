@@ -1,0 +1,28 @@
+
+<ng-template [ngIf]="!editMode" [ngIfElse]="Edit">
+<div class="percentage-card" >
+    <div class="percentage-card__edit-mode" *ngIf="isAdminElement">
+        <button mat-mini-fab color="accent" (click)="toggleEditMode()" matTooltip="Editar">
+            <mat-icon aria-hidden="false" aria-label="edit-icon" fontIcon="edit"></mat-icon>
+        </button>
+    </div>
+    <div class="percentage-card__percent">
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70" style="--color:{{skill.color}};--percentage:{{skill.percentage}};"></circle>
+        </svg>
+        <div class="percentage-card__percent-number">
+            <h2>
+                {{skill.percentage}}<span>%</span>
+            </h2>
+        </div>
+    </div>
+    <h2 class="percentage-card-text">{{skill.title}}</h2>
+</div>
+</ng-template>
+<ng-template #Edit>
+    <app-skill-input-card [skillToEdit]="skill" (exitEditMode)="toggleEditMode()"></app-skill-input-card>
+</ng-template>
+
+
+

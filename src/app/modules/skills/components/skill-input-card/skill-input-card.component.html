@@ -1,0 +1,38 @@
+<form class="skill-input-card" [formGroup]="skillForm" >
+    <div class="skill-input-card__cover-add-button" #coverAddButton *ngIf="!skillToEdit">
+        <button mat-fab matTooltip="Agregar Habilidad" class="bg-green-300" (click)="handlerClickCoverAddButton()">
+            <mat-icon aria-hidden="false" aria-label="plus-add" fontIcon="add"></mat-icon>
+        </button>
+    </div>
+    <button 
+        *ngIf="skillToEdit" 
+        mat-mini-fab color="accent" 
+        matTooltip="Volver" 
+        class="skill-input-card-edit-volver"
+        (click)="exitEditMode.emit(true)"
+    >
+        <mat-icon aria-hidden="false" aria-label="edit-icon" fontIcon="arrow_forward"></mat-icon>
+    </button>
+    <app-pick-color (color)="changeColor($event)"></app-pick-color>
+    <div class="skill-input-card__percent">
+        <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70" 
+                style="--color:{{getFieldValue('color')}};--percentage:{{getFieldValue('percentage')}};"
+            ></circle>
+        </svg>
+        <div class="skill-input-card__percent-number">
+            <input type="number" formControlName="percentage" onClick="this.select()" class="c-input"/> 
+            <span>%</span>
+        </div>
+    </div>
+    <input type="text" class="c-input skill-input-card-text" formControlName="title" placeholder="Title">
+    <div class="skill-input-card-footer">
+        <button mat-mini-fab matTooltip="Borrar" color="warn" (click)="remove()">
+            <mat-icon aria-hidden="false" aria-label="save-delete" fontIcon="delete"></mat-icon>
+        </button>
+        <button mat-mini-fab matTooltip="Guardar" class="bg-green-300" (click)="save()">
+            <mat-icon aria-hidden="false" aria-label="save-icon" fontIcon="save"></mat-icon>
+        </button>
+    </div>
+</form>

@@ -1,3 +1,7 @@
 <section class="page skillsDashboardPage" *ngIf="skills.skills$ | async as skills">
-    <pre>{{skills | json}}</pre>
+    <app-animated-title title="Habilidades" class="title"></app-animated-title>
+    <app-percentage-card-container 
+        class="skills-container"
+        [isAdminElement]="true"
+    ></app-percentage-card-container>
 </section>

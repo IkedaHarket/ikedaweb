@@ -1,0 +1,15 @@
+<div 
+*ngIf="skill.skills$ | async as skills"
+class="percentage-card-container"
+>
+    <app-percentage-card 
+        *ngFor="let skill of skills" 
+        [skill]="skill"
+        [isAdminElement]="isAdminElement"
+        >
+    </app-percentage-card>
+    <app-skill-input-card
+        *ngIf="isAdminElement"
+        >
+    </app-skill-input-card>
+</div>

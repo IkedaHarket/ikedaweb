@@ -1,9 +1,11 @@
-<div class="page welcomePage" *ngIf="configuration.configuration$ | async as configuration">
+<div class="welcomePage" *ngIf="configuration.configuration$ | async as configuration">
     <app-carousel  [images]="configuration.carousel" ></app-carousel>
-    <br>
-    <br>
-    <br>
-    <section class="welcome-presentation">
-        <pre>{{configuration | json}}</pre>
-    </section>
+    <div class="page">
+        <br>
+        <br>
+        <br>
+        <section class="welcome-presentation">
+            <pre>{{configuration | json}}</pre>
+        </section>
+    </div>
 </div>
