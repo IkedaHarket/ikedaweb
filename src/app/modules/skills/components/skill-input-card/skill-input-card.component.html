@@ -1,6 +1,6 @@
 <form class="skill-input-card" [formGroup]="skillForm" >
     <div class="skill-input-card__cover-add-button" #coverAddButton *ngIf="!skillToEdit">
-        <button mat-fab matTooltip="Agregar Habilidad" class="bg-green-300" (click)="handlerClickCoverAddButton()">
+        <button mat-fab matTooltip="Agregar Habilidad" class="bg-green-300" (click)="handlerCoverButton('hide')">
             <mat-icon aria-hidden="false" aria-label="plus-add" fontIcon="add"></mat-icon>
         </button>
     </div>
@@ -28,8 +28,9 @@
     </div>
     <input type="text" class="c-input skill-input-card-text" formControlName="title" placeholder="Title">
     <div class="skill-input-card-footer">
-        <button mat-mini-fab matTooltip="Borrar" color="warn" (click)="remove()">
-            <mat-icon aria-hidden="false" aria-label="save-delete" fontIcon="delete"></mat-icon>
+        <button mat-mini-fab [matTooltip]="skillToEdit ? 'Borrar' : 'Cerrar'" color="warn" (click)="remove()">
+            <mat-icon *ngIf="skillToEdit" aria-hidden="false" aria-label="save-delete" fontIcon="delete"></mat-icon>
+            <mat-icon *ngIf="!skillToEdit" aria-hidden="false" aria-label="save-close" fontIcon="close"></mat-icon>
         </button>
         <button mat-mini-fab matTooltip="Guardar" class="bg-green-300" (click)="save()">
             <mat-icon aria-hidden="false" aria-label="save-icon" fontIcon="save"></mat-icon>

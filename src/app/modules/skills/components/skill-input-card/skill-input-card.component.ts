@@ -4,6 +4,7 @@ import { FormValidators } from '../../validators/form-validators';
 import { environment } from 'src/environments/environment';
 import { SkillsService } from '../../services/skills/skills.service';
 import { Skill } from '../../interfaces';
+import { AlertService } from 'src/app/core/services';
 
 type SkillForm= 'percentage' | 'title' | 'color' | 'description';
 
@@ -33,6 +34,7 @@ export class SkillInputCardComponent implements OnInit{
     private readonly fb: FormBuilder,
     private readonly formValidator: FormValidators,
     private readonly skill: SkillsService,
+    private readonly alert: AlertService,
   ){}
 
   ngOnInit(): void {
@@ -47,20 +49,32 @@ export class SkillInputCardComponent implements OnInit{
     return this.skillForm.get(field)?.value;
   }
 
-  handlerClickCoverAddButton(): void{
-    this.coverAddButton.nativeElement.classList.add('active');
+  handlerCoverButton(term: 'show' | 'hide'): void{
+    if(term === 'hide') this.coverAddButton?.nativeElement.classList.add('active');
+    else this.coverAddButton?.nativeElement.classList.remove('active');
   }
   
   save(){
     if(this.skillForm.invalid) return
-    this.skill.postSkill(this.skillForm.value).subscribe(()=>{
-      this.turnInitialState()
-    })
+    if(this.skillToEdit){
+      this.skill.editSkill(this.skillForm.value,this.skillToEdit.id).subscribe(()=>{
+        this.turnInitialState()
+      })
+    }else{
+      this.skill.postSkill(this.skillForm.value).subscribe(()=>{
+        this.turnInitialState()
+      })
+    }
   }
 
   remove(){
+    if(this.skillToEdit){
+      this.alert.display({title: '¿Desea borrar esta habilidad?'}).then(({isConfirmed})=>{
+        if(isConfirmed) this.skill.deleteSkill(this.skillToEdit!.id).subscribe(console.log)
+      })
+      return
+    }
     this.turnInitialState()
-    this.skill.deleteSkill(this.skillToEdit!.id).subscribe()
   }
 
   turnInitialState(){
@@ -68,14 +82,12 @@ export class SkillInputCardComponent implements OnInit{
       this.skillForm.get('color')?.setValue(this.skillToEdit.color)
       this.skillForm.get('percentage')?.setValue(this.skillToEdit.percentage)
       this.skillForm.get('title')?.setValue(this.skillToEdit.title)
-      this.coverAddButton?.nativeElement.classList.remove('active');
     }else{
       this.skillForm.get('color')?.setValue(environment.primaryColor)
       this.skillForm.get('percentage')?.setValue(0)
       this.skillForm.get('title')?.setValue('')
-      this.coverAddButton?.nativeElement.classList.remove('active');
     }
-    
+    this.handlerCoverButton('show')
   }
 
 }
