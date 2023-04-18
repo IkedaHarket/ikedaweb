@@ -1,0 +1,45 @@
+.projectsDashboardPage{
+    & .projects-crud-table{
+        width: 100%;
+        text-align: center;
+        overflow: scroll;
+        & thead tr {
+            & th {
+                padding-bottom: 2rem ;
+                font-size: 2rem;   
+            }
+            & .th-description{
+                width: 30rem;
+            }
+            & .th-acciones{
+                width: 30rem;
+            }
+        }
+        & tbody{
+            font-size: 1.4rem;
+            & tr {
+                height: 10rem;
+                border-bottom: .1rem solid lighten($color: $black, $amount: 80);
+                & .td-description p{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 8rem;
+                    overflow: auto;
+                    margin: 0;
+                }
+                & td {
+                    & button {
+                        margin: 0 1.5rem;
+                    }
+                    & img{
+                        width: 8rem;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                }
+            }
+        }
+    }
+}
+

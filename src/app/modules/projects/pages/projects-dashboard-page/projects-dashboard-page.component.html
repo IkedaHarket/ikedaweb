@@ -1,3 +1,36 @@
 <section class="page projectsDashboardPage" *ngIf="project.projects$ | async as projects">
-    <pre>{{ projects | json }}</pre>
+    <app-animated-title title="Proyectos"></app-animated-title>
+    <table class="projects-crud-table">
+        <thead>
+            <tr>
+                <th>Titulo</th>
+                <th class="th-description">Description</th>
+                <th>Imagen</th>
+                <th class="th-acciones">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let project of projects">
+                <td>
+                    {{project.title}}
+                </td>
+                <td class="td-description">
+                    <p>
+                        {{project.description}}
+                    </p>
+                </td>
+                <td>
+                    <img [src]="project.image" alt="{{project.title}}-image">
+                </td>
+                <td>
+                    <button mat-mini-fab color="accent" matTooltip="Editar">
+                        <mat-icon aria-hidden="false" aria-label="edit-icon" fontIcon="edit" (click)="setProjectToEdit(project)"></mat-icon>
+                    </button>
+                    <button mat-mini-fab matTooltip="Eliminar" color="warn" >
+                        <mat-icon aria-hidden="false" aria-label="delete-close" fontIcon="delete"></mat-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </section>

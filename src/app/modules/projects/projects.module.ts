@@ -8,7 +8,7 @@ import { ProjectService } from './service/project/project.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCardContainerComponent } from './components/project-card-container/project-card-container.component';
-
+import { MaterialModule } from 'src/app/material/material.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +21,7 @@ import { ProjectCardContainerComponent } from './components/project-card-contain
     CommonModule,
     ProjectsRoutingModule,
     SharedModule,
+    MaterialModule
   ]
 })
 export class ProjectsModule { 

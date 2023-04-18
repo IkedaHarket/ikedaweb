@@ -29,8 +29,8 @@
     <input type="text" class="c-input skill-input-card-text" formControlName="title" placeholder="Title">
     <div class="skill-input-card-footer">
         <button mat-mini-fab [matTooltip]="skillToEdit ? 'Borrar' : 'Cerrar'" color="warn" (click)="remove()">
-            <mat-icon *ngIf="skillToEdit" aria-hidden="false" aria-label="save-delete" fontIcon="delete"></mat-icon>
-            <mat-icon *ngIf="!skillToEdit" aria-hidden="false" aria-label="save-close" fontIcon="close"></mat-icon>
+            <mat-icon *ngIf="skillToEdit" aria-hidden="false" aria-label="delete-icon" fontIcon="delete"></mat-icon>
+            <mat-icon *ngIf="!skillToEdit" aria-hidden="false" aria-label="close-icon" fontIcon="close"></mat-icon>
         </button>
         <button mat-mini-fab matTooltip="Guardar" class="bg-green-300" (click)="save()">
             <mat-icon aria-hidden="false" aria-label="save-icon" fontIcon="save"></mat-icon>
