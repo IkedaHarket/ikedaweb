@@ -12,9 +12,7 @@ export class FileService {
 
   constructor(
     private readonly http : HttpClient
-  ) { 
-    // setTimeout(()=> this.getFile('web-pages','942fbda6-b830-45c5-a73d-c26865f31f9d.jpeg').then(console.log),2000)
-  }
+  ) { }
 
   async getFile(fileBy:string, fileName:string):Promise<string | Error>{
     if(this._filesBy.length === 0 ) await this._setFilesBy();

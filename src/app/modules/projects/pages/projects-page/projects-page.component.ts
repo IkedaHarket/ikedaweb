@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ProjectService } from '../../service/project/project.service';
 
 @Component({
   selector: 'app-projects-page',
@@ -8,8 +7,6 @@ import { ProjectService } from '../../service/project/project.service';
 })
 export class ProjectsPageComponent {
 
-  constructor(
-    public readonly project: ProjectService,
-  ){}
+  constructor(){}
 
 }

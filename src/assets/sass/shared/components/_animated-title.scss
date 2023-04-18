@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3rem;
 }
 .container-animate-title .animate-title{
     margin: 0;
@@ -20,7 +21,7 @@
 }
 .container-animate-title .animate-title.animate-title-2{
     color: $primary-color;
-    height: 12rem;
+    height: 18rem;
     animation: animate 4s ease-in-out infinite;
 }
 

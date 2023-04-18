@@ -17,8 +17,8 @@ ul{
 }
 .page{
     min-height: $page-height;
-    margin: 0;
-    padding: 0 $page-margin;
+    margin: 0 0 2rem 0;
+    padding: 0 $page-padding 2rem $page-padding;
 }
 .bg-green-300{
     background-color: $green-color-300 !important;

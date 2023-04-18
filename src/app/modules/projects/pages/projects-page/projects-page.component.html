@@ -1,4 +1,4 @@
-<section class="page projectsPage" *ngIf="project.projects$ | async as projects">
-    <app-animated-title title="Proyectos"></app-animated-title>
-    <pre>{{ projects | json }}</pre>
+<section class="page projectsPage">
+    <app-animated-title title="Proyectos" class="title"></app-animated-title>
+    <app-project-card-container></app-project-card-container>
 </section>

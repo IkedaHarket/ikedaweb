@@ -1,0 +1,52 @@
+.project-card{
+    background-color: #242424;
+	border-radius: 15px;
+	padding: 20px;
+	display: flex;
+	align-items: center;
+	position: relative;
+    flex-wrap: wrap;
+    width: 70rem;
+    gap: 3rem;
+    & .project-card__img{
+        width: 30rem;
+        height: 20rem;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+    & .project-card__info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: auto;
+        & h6 {
+            font-size: 3rem;
+            color: $white;
+            font-weight: 800;
+            letter-spacing: .2rem;
+        }
+        & p{
+            color: $white;
+            font-size: 1.6rem;
+            text-align: center;
+            height: 8rem;
+            overflow: auto;
+        }
+        & .c-button{
+            position: absolute;
+            font-size: 1.6rem;
+            bottom: 3rem;
+        }
+    }
+}
+@media screen and (max-width: 730px) {
+    .project-card{
+        flex-direction: column;
+        width: 40rem;
+    }
+}

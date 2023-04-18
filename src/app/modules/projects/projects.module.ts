@@ -6,12 +6,16 @@ import { ProjectsPageComponent } from './pages/projects-page/projects-page.compo
 import { ProjectsDashboardPageComponent } from './pages/projects-dashboard-page/projects-dashboard-page.component';
 import { ProjectService } from './service/project/project.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ProjectCardComponent } from './components/project-card/project-card.component';
+import { ProjectCardContainerComponent } from './components/project-card-container/project-card-container.component';
 
 
 @NgModule({
   declarations: [
     ProjectsPageComponent,
-    ProjectsDashboardPageComponent
+    ProjectsDashboardPageComponent,
+    ProjectCardComponent,
+    ProjectCardContainerComponent
   ],
   imports: [
     CommonModule,
