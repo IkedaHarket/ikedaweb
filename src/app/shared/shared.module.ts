@@ -8,6 +8,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AnimatedTitleComponent } from './components/animated-title/animated-title.component';
 import { MapleLeafComponent } from './components/maple-leaf/maple-leaf.component';
 import { PickColorComponent } from './components/pick-color/pick-color.component';
+import { InputFileComponent } from './components/input-file/input-file.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { PickColorComponent } from './components/pick-color/pick-color.component
     AnimatedTitleComponent,
     MapleLeafComponent,
     PickColorComponent,
+    InputFileComponent,
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { PickColorComponent } from './components/pick-color/pick-color.component
     AnimatedTitleComponent,
     MapleLeafComponent,
     PickColorComponent,
+    InputFileComponent,
   ]
 })
 export class SharedModule { }

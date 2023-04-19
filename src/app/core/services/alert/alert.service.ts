@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import Swal, { SweetAlertOptions, SweetAlertResult } from "sweetalert2";
+import Swal, { SweetAlertResult } from "sweetalert2";
 import { environment } from 'src/environments/environment';
+import { DisplayAlertOptions } from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class AlertService {
     Swal.close();
   }
 
-  display(options: SweetAlertOptions): Promise<SweetAlertResult<any>>{
+  display(options: DisplayAlertOptions): Promise<SweetAlertResult<any>>{
     return Swal.fire({
       ...options,
       confirmButtonColor: environment.primaryColor
@@ -29,6 +30,16 @@ export class AlertService {
         Swal.showLoading();
       },
     });
+  }
+
+  displayToast(options: DisplayAlertOptions): Promise<SweetAlertResult<any>>{
+    return Swal.fire({
+      ...options,
+      timer: 2000,
+      toast:true, 
+      position: 'top-end', 
+      showConfirmButton: false,
+    })
   }
 
 }

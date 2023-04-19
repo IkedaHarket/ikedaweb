@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ProjectService } from '../../service/project/project.service';
-import { Project } from '../../interfaces';
+import { MatDialog } from '@angular/material/dialog';
+import { NewProjectComponent } from '../../components/new-project/new-project.component';
 
 @Component({
   selector: 'app-projects-dashboard-page',
@@ -9,14 +10,17 @@ import { Project } from '../../interfaces';
 })
 export class ProjectsDashboardPageComponent {
 
-  projectToEdit!: Project; 
-
   constructor(
     public readonly project: ProjectService,
+    public readonly dialog: MatDialog,
   ){}
 
-  setProjectToEdit(project: Project){
-    this.projectToEdit = project;
+  openNewProjectForm(){
+    this.dialog.closeAll();
+    this.dialog.open(NewProjectComponent)
   }
   
+  deleteProject(idProject:string){
+    
+  }
 }

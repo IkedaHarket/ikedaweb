@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Agregar proyecto</h1>
+<div mat-dialog-content>
+  <form class="new-project__form" [formGroup]="projectForm">
+    <input 
+      type="text"  
+      class="c-input" 
+      placeholder="Titulo"
+      formControlName="title"
+      >
+    <input 
+      type="url" 
+      class="c-input" 
+      placeholder="Enlace"
+      formControlName="url"
+      >
+    <textarea placeholder="Descripcion" formControlName="description"></textarea>
+    <app-input-file label="Agregar Imagen" (files)="onFileChange($event)"></app-input-file>
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-flat-button color="warn" (click)="dialogRef.close()">Cerrar</button>
+  <button mat-flat-button class="bg-green-300 text-white" [disabled]="projectForm.invalid" (click)="save()">Agregar</button>
+</div>

@@ -1,0 +1,12 @@
+<input
+  #inputFile
+  (change)="changeInputFile($event)"
+  [accept]="accept"
+  [multiple]="multiple"
+  class="d-none"
+  type="file"
+/>
+<button class="button-uploader" (click)="handlerClick()">
+  <i *ngIf="preparedFiles?.length <= 0" class="pi pi-plus"></i>
+  {{ preparedFiles?.length > 0 ? preparedFiles?.length + " archivos" : label }}
+</button>

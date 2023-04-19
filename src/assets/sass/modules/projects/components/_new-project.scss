@@ -1,0 +1,18 @@
+.new-project__form{
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+    & input , & textarea { width: 80%; font-size: 1.6rem;  }
+    & input {
+        height: 3rem; 
+        padding: 1.6rem 1rem;
+    }
+    & textarea {
+        padding: 1rem;
+        height: 30rem;
+    }
+}

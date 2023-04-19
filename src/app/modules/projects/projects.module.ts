@@ -9,17 +9,21 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCardContainerComponent } from './components/project-card-container/project-card-container.component';
 import { MaterialModule } from 'src/app/material/material.module';
+import { NewProjectComponent } from './components/new-project/new-project.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     ProjectsPageComponent,
     ProjectsDashboardPageComponent,
     ProjectCardComponent,
-    ProjectCardContainerComponent
+    ProjectCardContainerComponent,
+    NewProjectComponent
   ],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
+    ReactiveFormsModule,
     SharedModule,
     MaterialModule
   ]
