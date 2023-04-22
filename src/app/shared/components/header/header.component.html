@@ -18,7 +18,6 @@
         </div> -->
         <br>
         <ul>
-            <li routerLink="welcome">Inicio</li>
             <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>
             <li *ngIf="auth.user$ | async as user" (click)="logOut()" >Cerrar Sesion</li>
         </ul>
