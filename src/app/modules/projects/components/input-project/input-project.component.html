@@ -1,6 +1,6 @@
-<h1 mat-dialog-title>Agregar proyecto</h1>
+<h1 mat-dialog-title>{{projectToEdit ? 'Editar' : 'Agregar'}} proyecto</h1>
 <div mat-dialog-content>
-  <form class="new-project__form" [formGroup]="projectForm">
+  <form class="input-project__form" [formGroup]="projectForm">
     <input 
       type="text"  
       class="c-input" 
@@ -19,5 +19,5 @@
 </div>
 <div mat-dialog-actions align="end">
   <button mat-flat-button color="warn" (click)="dialogRef.close()">Cerrar</button>
-  <button mat-flat-button class="bg-green-300 text-white" [disabled]="projectForm.invalid" (click)="save()">Agregar</button>
+  <button mat-flat-button class="bg-green-300 text-white" [disabled]="projectForm.invalid" (click)="save()">{{projectToEdit ? 'Editar' : 'Agregar'}}</button>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ConfigurationService } from 'src/app/modules/configuration/services/configuration/configuration.service';
 
 @Component({
   selector: 'app-footer',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
+
+  constructor(
+      public readonly configuration : ConfigurationService,
+    ){}
 
 }

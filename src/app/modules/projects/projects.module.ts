@@ -9,7 +9,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { ProjectCardComponent } from './components/project-card/project-card.component';
 import { ProjectCardContainerComponent } from './components/project-card-container/project-card-container.component';
 import { MaterialModule } from 'src/app/material/material.module';
-import { NewProjectComponent } from './components/new-project/new-project.component';
+import { InputProjectComponent } from './components/input-project/input-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProjectsDashboardPageComponent,
     ProjectCardComponent,
     ProjectCardContainerComponent,
-    NewProjectComponent
+    InputProjectComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +33,7 @@ export class ProjectsModule {
   constructor(
     private readonly project: ProjectService,
   ){
-    this.loadProjects();
+    // this.loadProjects();
   }
 
   loadProjects(): void{

@@ -5,13 +5,14 @@ import { BehaviorSubject, Observable, catchError, tap, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment'
 import { Configuration } from '../../interfaces';
 
+import ConfigurationData from "../configuration-data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigurationService {
 
-  private _configuration = new BehaviorSubject<Configuration | null>(null);
+  private _configuration = new BehaviorSubject<Configuration | null>(ConfigurationData);
   public  configuration$ = this._configuration.asObservable();
 
   constructor(

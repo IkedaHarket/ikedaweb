@@ -4,13 +4,14 @@ import { CreateSkillDTO, Skill } from '../../interfaces';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AlertService } from 'src/app/core/services';
+import SkillsData from "../skills-data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillsService {
 
-  private _skills = new BehaviorSubject<Skill[] | null>(null);
+  private _skills = new BehaviorSubject<Skill[] | null>(SkillsData);
   public skills$ = this._skills.asObservable();
 
   constructor(

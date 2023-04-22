@@ -4,10 +4,22 @@
     </svg>
     <div class="footer__container">
         <app-maple-leaf weight="250"></app-maple-leaf>
-        <form>
-            <input type="email" class="c-input" placeholder="Correo"/>
-            <textarea placeholder="Mensaje"></textarea>
-            <button class="c-button">Enviar</button>
-        </form>
+        <div class="contact" *ngIf="configuration.configuration$ | async as configuration">
+            <span class="social-network">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/WhatsApp_icon.png/598px-WhatsApp_icon.png" alt="whatsapp-icon">
+                {{configuration.contact.whatsapp}}
+            </span>
+            <span class="social-network">
+                <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="gmail-icon">
+                {{configuration.contact.email}}
+            </span>
+            <span
+                *ngFor="let socialNetwork of configuration.socialNetwork"
+                class="social-network"
+            >
+                <img [src]="socialNetwork.icon" alt="">
+                <a [href]="socialNetwork.url">{{socialNetwork.name}}</a>
+            </span>
+        </div>
     </div>
 </footer>

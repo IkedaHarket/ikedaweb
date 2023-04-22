@@ -17,7 +17,7 @@ import { ConfigurationService } from './services/configuration/configuration.ser
 })
 export class ConfigurationModule { 
   constructor(private readonly configuration: ConfigurationService){
-    this.loadConfiguration();
+    // this.loadConfiguration();
   }
   loadConfiguration():void{
     this.configuration.getConfiguration().subscribe()

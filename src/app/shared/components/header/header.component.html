@@ -7,15 +7,16 @@
             <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>
             <li *ngIf="auth.user$ | async as user" (click)="logOut()" >Cerrar Sesion</li>
         </ul>
-        <span>☀️</span>
+        <!-- <span>☀️</span> -->
     </nav>
     <nav class="header__nav-responsive" [class.active]="showResponsiveMenu">
         <div class="header__nav-responsive-openClose">
             <mat-icon fontIcon="{{showResponsiveMenu ? 'arrow_forward' : 'arrow_back'}}" (click)="toggleShowResponsiveMenu()"></mat-icon>
         </div>
-        <div class="container-button-theme">
+        <!-- <div class="container-button-theme">
             <span class="button-theme">☀️</span>
-        </div>
+        </div> -->
+        <br>
         <ul>
             <li routerLink="welcome">Inicio</li>
             <li *ngFor="let item of menu" [routerLink]="item.route">{{ item.label }}</li>

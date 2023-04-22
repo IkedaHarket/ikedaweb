@@ -4,14 +4,17 @@ import { BehaviorSubject, Observable, catchError, take, tap, throwError } from '
 import { CreateProjectDto, Project } from '../../interfaces';
 import { environment } from 'src/environments/environment';
 import { AlertService } from 'src/app/core/services';
+import ProjectsData from "../projects-data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjectService {
 
-  private _projects = new BehaviorSubject<Project[] | null>(null);
+  private _projects = new BehaviorSubject<Project[] | null>(ProjectsData);
   public projects$ = this._projects.asObservable();
+
+  public fileBy = 'web-pages';
 
   constructor(
     private readonly http: HttpClient,
@@ -21,6 +24,7 @@ export class ProjectService {
   getProjects(): Observable<Project[]>{
     return this.http.get<Project[]>(`${environment.backendUrl}web-pages`).pipe(
       take(1),
+      tap(console.log),
       tap( (projects) => this._projects.next(projects)),
       catchError( (e) => this.handleErrorApi(e) )
     )
@@ -35,6 +39,18 @@ export class ProjectService {
       }),
       catchError( (e) => this.handleErrorApi(e, 'agregar') )
     )
+  }
+
+  editproject(idProject:string, project:CreateProjectDto):Observable<Project>{
+    return this.http.put<Project>(`${environment.backendUrl}web-pages/${idProject}`,project).pipe(
+      take(1),
+      tap( (newProject) => {
+        this.alert.displayToast({icon:'success',title:'Proyecto editado'})
+        const newProjects = this._projects.value?.map((project) => (project.id === newProject.id)? newProject : project ) || []
+        this._projects.next(newProjects)
+      }),
+      catchError( (e) => this.handleErrorApi(e, 'editar') )
+      )
   }
 
   deleteProject(idProject:string):Observable<void>{

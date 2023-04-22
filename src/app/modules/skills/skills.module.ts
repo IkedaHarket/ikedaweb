@@ -34,7 +34,7 @@ export class SkillsModule {
   constructor(
     private readonly skills: SkillsService,
   ){
-    this.loadSkills();
+    // this.loadSkills();
   }
   loadSkills(): void{
     this.skills.getSkills().subscribe()
